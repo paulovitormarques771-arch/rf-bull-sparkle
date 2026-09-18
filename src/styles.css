@@ -100,7 +100,10 @@ header nav a:hover { color: var(--accent); }
 .flavor-visual:hover { border-color: var(--accent); }
 .flavor-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 25%, oklch(1 0 0 / 18%) 42%, transparent 57%); transform: translateX(-100%); transition: transform .8s ease; }
 .flavor-visual:hover::after { transform: translateX(100%); }
-.flavor-visual img { width: 100%; height: 100%; min-height: 530px; object-fit: cover; }
+.flavor-can-stage { width: 100%; height: 100%; min-height: 530px; background: radial-gradient(circle at 50% 45%, var(--flavor-glow), transparent 46%), linear-gradient(145deg, oklch(0.17 0.03 260), oklch(0.07 0.015 260)); }
+.flavor-visual img { width: 100%; height: 100%; min-height: 530px; object-fit: contain; filter: drop-shadow(0 28px 30px oklch(0 0 0 / 55%)); }
+.flavor-can-enter { animation: can-switch .48s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes can-switch { from { opacity: 0; transform: translateY(22px) scale(.94) rotate(-1.5deg); filter: blur(5px) drop-shadow(0 28px 30px oklch(0 0 0 / 55%)); } to { opacity: 1; transform: translateY(0) scale(1) rotate(0); filter: blur(0) drop-shadow(0 28px 30px oklch(0 0 0 / 55%)); } }
 .flavor-copy { position: absolute; right: 0; bottom: 0; left: 0; z-index: 2; background: linear-gradient(0deg, oklch(0.05 0.02 260 / 96%), transparent); padding: 7rem 2rem 2rem; }
 .flavor-copy span { color: var(--accent); font-size: .65rem; font-weight: 800; letter-spacing: .14em; }
 .flavor-copy h3 { margin: .2rem 0; font-family: var(--font-display); font-size: 3rem; font-weight: 900; text-transform: uppercase; }
@@ -147,7 +150,7 @@ footer p { margin: .7rem 0 0; color: var(--muted-foreground); font-size: .68rem;
   .hero-scrim { background: linear-gradient(0deg, var(--background) 4%, oklch(0.05 0.02 260 / 72%) 55%, oklch(0.05 0.02 260 / 25%)); }
   .hero h1 { font-size: clamp(4.1rem, 19vw, 6rem); }
   .section-head { align-items: flex-start; flex-direction: column; }
-  .flavor-visual, .flavor-visual img { min-height: 420px; }
+  .flavor-visual, .flavor-visual img, .flavor-can-stage { min-height: 420px; }
   .flavor-visual img { object-position: center; }
   .gallery-stage { aspect-ratio: 4/5; min-height: 560px; }
   .gallery-stage img { object-position: center; }

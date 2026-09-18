@@ -7,13 +7,18 @@ import lineupAsset from "@/assets/rf-bull-lineup.jpg.asset.json";
 import nightlifeAsset from "@/assets/rf-bull-nightlife.jpg.asset.json";
 import flavorsAsset from "@/assets/rf-bull-flavors.jpg.asset.json";
 import racingAsset from "@/assets/rf-bull-racing.jpg.asset.json";
+import classicoAsset from "@/assets/rf-bull-classico.jpg.asset.json";
+import guaranaAsset from "@/assets/rf-bull-guarana.jpg.asset.json";
+import limaoAsset from "@/assets/rf-bull-limao.jpg.asset.json";
+import morangoAsset from "@/assets/rf-bull-morango.jpg.asset.json";
+import mirtiloAsset from "@/assets/rf-bull-mirtilo.jpg.asset.json";
 
 const flavors = [
-  { name: "Clássico", note: "O sabor que começou tudo. Intenso, gelado e inconfundível.", color: "blue" },
-  { name: "Guaraná", note: "A força brasileira em uma combinação vibrante e tropical.", color: "pink" },
-  { name: "Limão Exótico", note: "Cítrico afiado, refrescância máxima e final surpreendente.", color: "lime" },
-  { name: "Morango Intenso", note: "Frutado, marcante e feito para acelerar seus sentidos.", color: "red" },
-  { name: "Mirtilo Silvestre", note: "Notas profundas de frutas azuis com energia sofisticada.", color: "violet" },
+  { name: "Clássico", note: "O sabor que começou tudo. Intenso, gelado e inconfundível.", color: "blue", image: classicoAsset.url },
+  { name: "Guaraná", note: "A força brasileira em uma combinação vibrante e tropical.", color: "pink", image: guaranaAsset.url },
+  { name: "Limão Exótico", note: "Cítrico afiado, refrescância máxima e final surpreendente.", color: "lime", image: limaoAsset.url },
+  { name: "Morango Intenso", note: "Frutado, marcante e feito para acelerar seus sentidos.", color: "red", image: morangoAsset.url },
+  { name: "Mirtilo Silvestre", note: "Notas profundas de frutas azuis com energia sofisticada.", color: "violet", image: mirtiloAsset.url },
 ] as const;
 
 const gallery = [
@@ -59,7 +64,7 @@ function Index() {
     return () => window.clearInterval(timer);
   }, []);
 
-  const flavor = flavors[activeFlavor];
+  const flavor = flavors[activeFlavor] ?? flavors[0];
   const moveSlide = (direction: number) => setSlide((slide + direction + gallery.length) % gallery.length);
 
   return (
@@ -96,10 +101,12 @@ function Index() {
           <div className="section-head"><div><span className="kicker">ESCOLHA SUA VIBE</span><h2>Cinco sabores.<br /><em>Infinitas possibilidades.</em></h2></div><p>Clique em um sabor e encontre a lata que acompanha o seu ritmo.</p></div>
           <div className="mt-14 grid gap-8 lg:grid-cols-[0.78fr_1.22fr]">
             <div className="flavor-controls" role="tablist" aria-label="Sabores RF-Bull">
-              {flavors.map((item, index) => <button key={item.name} role="tab" aria-selected={activeFlavor === index} onClick={() => setActiveFlavor(index)}><span>0{index + 1}</span>{item.name}<ChevronRight size={18} /></button>)}
+              {flavors.map((item, index) => <button key={item.name} type="button" role="tab" aria-selected={activeFlavor === index} aria-controls="flavor-panel" onClick={() => setActiveFlavor(index)}><span>0{index + 1}</span>{item.name}<ChevronRight size={18} /></button>)}
             </div>
             <TiltCard className="flavor-visual">
-              <img src={lineupAsset.url} alt="Linha completa de sabores RF-Bull" />
+              <div id="flavor-panel" role="tabpanel" className="flavor-can-stage">
+                <img key={flavor.name} src={flavor.image} alt={`Lata RF-Bull sabor ${flavor.name}`} className="flavor-can-enter" />
+              </div>
               <div className="flavor-copy"><span>SABOR 0{activeFlavor + 1}</span><h3>{flavor.name}</h3><p>{flavor.note}</p></div>
               <div className="cold-badge"><Snowflake size={20} /><span>SIRVA<br />GELADO</span></div>
             </TiltCard>

@@ -7,18 +7,18 @@ import lineupAsset from "@/assets/rf-bull-lineup.jpg.asset.json";
 import nightlifeAsset from "@/assets/rf-bull-nightlife.jpg.asset.json";
 import flavorsAsset from "@/assets/rf-bull-flavors.jpg.asset.json";
 import racingAsset from "@/assets/rf-bull-racing.jpg.asset.json";
-import classicoAsset from "@/assets/rf-bull-classico.jpg.asset.json";
-import guaranaAsset from "@/assets/rf-bull-guarana.jpg.asset.json";
-import limaoAsset from "@/assets/rf-bull-limao.jpg.asset.json";
-import morangoAsset from "@/assets/rf-bull-morango.jpg.asset.json";
-import mirtiloAsset from "@/assets/rf-bull-mirtilo.jpg.asset.json";
+import classicoAsset from "@/assets/rf-bull-classico-v2.jpg.asset.json";
+import guaranaAsset from "@/assets/rf-bull-guarana-v2.jpg.asset.json";
+import limaoAsset from "@/assets/rf-bull-limao-v2.jpg.asset.json";
+import morangoAsset from "@/assets/rf-bull-morango-v2.jpg.asset.json";
+import mirtiloAsset from "@/assets/rf-bull-mirtilo-v2.jpg.asset.json";
 
 const flavors = [
-  { name: "Clássico", note: "O sabor que começou tudo. Intenso, gelado e inconfundível.", color: "blue", image: classicoAsset.url },
-  { name: "Guaraná", note: "A força brasileira em uma combinação vibrante e tropical.", color: "pink", image: guaranaAsset.url },
-  { name: "Limão Exótico", note: "Cítrico afiado, refrescância máxima e final surpreendente.", color: "lime", image: limaoAsset.url },
-  { name: "Morango Intenso", note: "Frutado, marcante e feito para acelerar seus sentidos.", color: "red", image: morangoAsset.url },
-  { name: "Mirtilo Silvestre", note: "Notas profundas de frutas azuis com energia sofisticada.", color: "violet", image: mirtiloAsset.url },
+  { name: "Clássico", note: "Cítrico marcante e adocicado equilibrado, a fórmula icônica com impulso revigorante.", profile: "Cítrico • Equilibrado • Revigorante", color: "blue", image: classicoAsset.url },
+  { name: "Guaraná", note: "Energia pura da Amazônia, sabor tropical doce e vibrante com essência autêntica de guaraná.", profile: "Tropical • Doce • Vibrante", color: "pink", image: guaranaAsset.url },
+  { name: "Limão Exótico", note: "Extrema refrescância, acidez viva e picante com notas de lima-da-pérsia e final gelado.", profile: "Ácido • Picante • Gelado", color: "lime", image: limaoAsset.url },
+  { name: "Morango Intenso", note: "Doçura aveludada de morangos maduros, encorpado e irresistivelmente frutado.", profile: "Aveludado • Encorpado • Frutado", color: "red", image: morangoAsset.url },
+  { name: "Mirtilo Silvestre", note: "Toque agridoce sofisticado de berries silvestres, aromático e refrescante.", profile: "Agridoce • Aromático • Refrescante", color: "violet", image: mirtiloAsset.url },
 ] as const;
 
 const gallery = [
@@ -107,7 +107,7 @@ function Index() {
               <div id="flavor-panel" role="tabpanel" className="flavor-can-stage">
                 <img key={flavor.name} src={flavor.image} alt={`Lata RF-Bull sabor ${flavor.name}`} className="flavor-can-enter" />
               </div>
-              <div className="flavor-copy"><span>SABOR 0{activeFlavor + 1}</span><h3>{flavor.name}</h3><p>{flavor.note}</p></div>
+              <div className="flavor-copy"><span>PERFIL DE SABOR · 0{activeFlavor + 1}</span><h3>{flavor.name}</h3><p>{flavor.note}</p><b>{flavor.profile}</b></div>
               <div className="cold-badge"><Snowflake size={20} /><span>SIRVA<br />GELADO</span></div>
             </TiltCard>
           </div>

@@ -64,7 +64,7 @@ function Index() {
     return () => window.clearInterval(timer);
   }, []);
 
-  const flavor = flavors[activeFlavor];
+  const flavor = flavors[activeFlavor] ?? flavors[0];
   const moveSlide = (direction: number) => setSlide((slide + direction + gallery.length) % gallery.length);
 
   return (

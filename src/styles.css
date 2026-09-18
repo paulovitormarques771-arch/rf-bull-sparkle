@@ -95,19 +95,20 @@ header nav a:hover { color: var(--accent); }
 .flavor-controls { display: flex; flex-direction: column; align-self: center; }
 .flavor-controls button { display: grid; grid-template-columns: 2rem 1fr auto; align-items: center; gap: .6rem; border: 0; border-bottom: 1px solid var(--border); background: transparent; padding: 1.1rem .5rem; color: var(--muted-foreground); text-align: left; font-family: var(--font-display); font-size: 1.65rem; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: all .25s ease; }
 .flavor-controls button span { font-family: var(--font-sans); font-size: .65rem; }
-.flavor-controls button[aria-selected="true"] { padding-left: 1rem; color: var(--foreground); border-color: var(--accent); background: linear-gradient(90deg, color-mix(in oklab, var(--accent) 18%, transparent), transparent); }
+.flavor-controls button[aria-selected="true"] { padding-left: 1rem; color: var(--foreground); border-color: var(--accent); background: linear-gradient(90deg, color-mix(in oklab, var(--accent) 22%, transparent), transparent); box-shadow: inset 3px 0 var(--accent), 0 0 26px color-mix(in oklab, var(--flavor-glow) 65%, transparent); text-shadow: 0 0 18px var(--flavor-glow); }
 .flavor-visual { position: relative; min-height: 530px; overflow: hidden; border: 1px solid var(--border); background: var(--card); transform-style: preserve-3d; transition: transform .15s ease-out, border-color .3s ease; }
 .flavor-visual:hover { border-color: var(--accent); }
 .flavor-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 25%, oklch(1 0 0 / 18%) 42%, transparent 57%); transform: translateX(-100%); transition: transform .8s ease; }
 .flavor-visual:hover::after { transform: translateX(100%); }
-.flavor-can-stage { width: 100%; height: 100%; min-height: 530px; background: radial-gradient(circle at 50% 45%, var(--flavor-glow), transparent 46%), linear-gradient(145deg, oklch(0.17 0.03 260), oklch(0.07 0.015 260)); }
-.flavor-visual img { width: 100%; height: 100%; min-height: 530px; object-fit: contain; filter: drop-shadow(0 28px 30px oklch(0 0 0 / 55%)); }
+.flavor-can-stage { width: 100%; height: 100%; min-height: 590px; background: radial-gradient(circle at 50% 38%, var(--flavor-glow), transparent 48%), linear-gradient(145deg, oklch(0.17 0.03 260), oklch(0.07 0.015 260)); }
+.flavor-visual img { width: 100%; height: 100%; min-height: 590px; object-fit: contain; filter: saturate(1.08) drop-shadow(0 28px 30px oklch(0 0 0 / 55%)); }
 .flavor-can-enter { animation: can-switch .48s cubic-bezier(.2,.8,.2,1) both; }
 @keyframes can-switch { from { opacity: 0; transform: translateY(22px) scale(.94) rotate(-1.5deg); filter: blur(5px) drop-shadow(0 28px 30px oklch(0 0 0 / 55%)); } to { opacity: 1; transform: translateY(0) scale(1) rotate(0); filter: blur(0) drop-shadow(0 28px 30px oklch(0 0 0 / 55%)); } }
 .flavor-copy { position: absolute; right: 0; bottom: 0; left: 0; z-index: 2; background: linear-gradient(0deg, oklch(0.05 0.02 260 / 96%), transparent); padding: 7rem 2rem 2rem; }
 .flavor-copy span { color: var(--accent); font-size: .65rem; font-weight: 800; letter-spacing: .14em; }
 .flavor-copy h3 { margin: .2rem 0; font-family: var(--font-display); font-size: 3rem; font-weight: 900; text-transform: uppercase; }
 .flavor-copy p { max-width: 32rem; color: oklch(0.82 0.02 250); }
+.flavor-copy b { display: block; margin-top: .8rem; color: var(--accent); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
 .cold-badge { position: absolute; top: 1.5rem; right: 1.5rem; z-index: 3; display: flex; align-items: center; gap: .6rem; border: 1px solid var(--border); background: oklch(0.08 0.02 260 / 72%); padding: .7rem 1rem; backdrop-filter: blur(10px); }
 .cold-badge span { font-size: .55rem; font-weight: 800; letter-spacing: .08em; line-height: 1.2; }
 .tilt-card { will-change: transform; }
